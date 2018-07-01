@@ -1,0 +1,22 @@
+{
+  "name": "milkcocoa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KimotoYanke/milkcocoa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KimotoYanke/milkcocoa/issues"
+  },
+  "homepage": "https://github.com/KimotoYanke/milkcocoa#readme",
+  "dependencies": {
+    "mqtt-for-milkcocoa": "^1.6.3"
+  }
+}
