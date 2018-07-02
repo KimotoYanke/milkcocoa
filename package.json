@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/KimotoYanke/milkcocoa#readme",
   "dependencies": {
-    "mqtt-for-milkcocoa": "^1.6.3"
+    "mqtt-for-milkcocoa": "git+https://github.com/KimotoYanke/mqtt-for-milkcocoa-for-meister.git"
   }
 }

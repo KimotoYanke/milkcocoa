@@ -1,9 +1,10 @@
 const mqtt = require('mqtt-for-milkcocoa');
 
+const makeURL = (url)=>this.url='wss://'+url+':443/websocket'
 class MilkCocoa {
   constructor (url) {
     if(url){
-      this.url='sockjss://'+url
+      this.url=makeURL(url)
       this.appId=url.match(/(.+)\.mlkcca\.com/)[1]
       this.connectMqtt()
     }
@@ -16,12 +17,16 @@ class MilkCocoa {
       password: this.appId,
       protocolVersion: 4,
       reconnectPeriod: 7000,
-      clean : true
+      clean : true,
+      protocol: 'wss',
+      wsOptions: {
+        port: 443
+      }
     });
   }
   static connectWithApiKey(url, key, secret){
     const result = new MilkCocoa()
-    result.url='sockjss://'+url
+    result.url=makeURL(url)
     result.key=key
     result.secret=secret
     result.appId=url.match(/(.+)\.mlkcca\.com/)[1]
@@ -30,7 +35,7 @@ class MilkCocoa {
   }
   static connect(url){
     const result = new MilkCocoa()
-    result.url='sockjss://'+url
+    result.url=makeURL(url)
     result.appId=url.match(/(.+)\.mlkcca\.com/)[1]
     result.connectMqtt()
     return result
@@ -50,7 +55,7 @@ class DataStore {
     const payload = JSON.stringify({
       params: obj
     });
-    
+
     this.client.publish(this.appId + '/' + this.name + '/' + command, payload, {
       qos : 0,
       retain : false
